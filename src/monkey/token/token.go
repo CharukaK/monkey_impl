@@ -9,8 +9,8 @@ type Token struct {
 
 // Tokens
 const (
-	ILLEGAL TokenType = "ILLEGAL" // tokens or characters that we can't figure out, let the parser know when to stop
-	EOF               = "EOF"
+	ILLEGAL = "ILLEGAL" // tokens or characters that we can't figure out, let the parser know when to stop
+	EOF     = "EOF"
 
 	// Identifiers + literals
 	IDENT = "IDENT"
