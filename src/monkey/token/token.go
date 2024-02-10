@@ -13,8 +13,8 @@ const (
 	EOF     = "EOF"
 
 	// Identifiers + literals
-	IDENT = "IDENT"
-	INT   = "INT"
+	IDENT = "IDENT" // identifiers
+	INT   = "INT" // 12345
 
 	// Operators
 	Assign = "="
