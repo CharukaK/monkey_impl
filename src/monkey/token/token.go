@@ -17,8 +17,16 @@ const (
 	NUMERIC    = "NUMERIC"    // 12345
 
 	// Operators
-	Assign = "="
-	PLUS   = "+"
+	Assign   = "="
+	PLUS     = "+"
+	BANG     = "!"
+	MINUS    = "-"
+	ASTERISK = "*"
+	SLASH    = "/"
+
+    // Comparative operators
+    LT = "<"
+    GT = ">"
 
 	// Delimeters
 	COMMA     = ","
@@ -40,10 +48,9 @@ var keywords = map[string]TokenType{
 }
 
 func LookupIdent(ident string) TokenType {
-    if tokT, ok := keywords[ident]; ok {
-        return tokT
-    }
+	if tokT, ok := keywords[ident]; ok {
+		return tokT
+	}
 
-    return IDENTIFIER
+	return IDENTIFIER
 }
-

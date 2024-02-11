@@ -47,6 +47,9 @@ func TestNextTokenLangLike(t *testing.T) {
         };
 
         let result = add(five, ten);
+
+        !-/*5;
+        5 < 10 > 5;
     `)
 
 	tests := []struct {
@@ -88,6 +91,18 @@ func TestNextTokenLangLike(t *testing.T) {
 		{token.COMMA, ","},
 		{token.IDENTIFIER, "ten"},
 		{token.RPAREN, ")"},
+		{token.SEMICOLON, ";"},
+		{token.BANG, "!"},
+		{token.MINUS, "-"},
+		{token.SLASH, "/"},
+		{token.ASTERISK, "*"},
+		{token.NUMERIC, "5"},
+		{token.SEMICOLON, ";"},
+		{token.NUMERIC, "5"},
+		{token.LT, "<"},
+		{token.NUMERIC, "10"},
+		{token.GT, ">"},
+		{token.NUMERIC, "5"},
 		{token.SEMICOLON, ";"},
 		{token.EOF, ""},
 	}
