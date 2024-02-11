@@ -24,9 +24,9 @@ const (
 	ASTERISK = "*"
 	SLASH    = "/"
 
-    // Comparative operators
-    LT = "<"
-    GT = ">"
+	// Comparative operators
+	LT = "<"
+	GT = ">"
 
 	// Delimeters
 	COMMA     = ","
@@ -40,11 +40,21 @@ const (
 	// Keywords
 	FUNCTION = "FUNCTION"
 	LET      = "LET"
+	IF       = "IF"
+	ELSE     = "ELSE"
+	RETURN   = "RETURN"
+	TRUE     = "true"
+	FALSE    = "false"
 )
 
 var keywords = map[string]TokenType{
-	"fn":  FUNCTION,
-	"let": LET,
+	"fn":     FUNCTION,
+	"let":    LET,
+	"if":     IF,
+	"else":   ELSE,
+	"return": RETURN,
+	"true":   TRUE,
+	"false":  FALSE,
 }
 
 func LookupIdent(ident string) TokenType {
