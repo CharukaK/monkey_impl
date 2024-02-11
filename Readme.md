@@ -6,4 +6,6 @@ Please [refer](https://monkeylang.org/) for an introduction and a full list of l
 This is a list of features that needs to be explored once the genric implementation is done
 
  - [ ] Lexer support for full unicode range
+ - [ ] support for floats?
+
 
