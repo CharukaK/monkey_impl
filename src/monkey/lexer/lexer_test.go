@@ -56,6 +56,9 @@ func TestNextTokenLangLike(t *testing.T) {
         } else {
             return false;
         }
+
+        10 == 10;
+        10 != 9;
     `)
 
 	// some of the statements here wouldn't make sense semantically but this test is based on how we can
@@ -122,14 +125,22 @@ func TestNextTokenLangLike(t *testing.T) {
 		{token.LBRACE, "{"},
 		{token.RETURN, "return"},
 		{token.TRUE, "true"},
-        {token.SEMICOLON, ";"},
+		{token.SEMICOLON, ";"},
 		{token.RBRACE, "}"},
-        {token.ELSE, "else"},
-        {token.LBRACE, "{"},
+		{token.ELSE, "else"},
+		{token.LBRACE, "{"},
 		{token.RETURN, "return"},
 		{token.FALSE, "false"},
-        {token.SEMICOLON, ";"},
-        {token.RBRACE, "}"},
+		{token.SEMICOLON, ";"},
+		{token.RBRACE, "}"},
+		{token.NUMERIC, "10"},
+		{token.EQ, "=="},
+		{token.NUMERIC, "10"},
+		{token.SEMICOLON, ";"},
+		{token.NUMERIC, "10"},
+		{token.NOT_EQ, "!="},
+		{token.NUMERIC, "9"},
+		{token.SEMICOLON, ";"},
 		{token.EOF, ""},
 	}
 

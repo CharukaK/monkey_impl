@@ -25,8 +25,10 @@ const (
 	SLASH    = "/"
 
 	// Comparative operators
-	LT = "<"
-	GT = ">"
+	LT     = "<"
+	GT     = ">"
+	NOT_EQ = "!="
+	EQ     = "=="
 
 	// Delimeters
 	COMMA     = ","
