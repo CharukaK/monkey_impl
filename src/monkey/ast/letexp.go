@@ -7,3 +7,11 @@ type LetStatement struct {
 	Name  *Identifier
 	Value Expression
 }
+
+func (s *LetStatement) statementNode() {
+
+} 
+
+func (s *LetStatement) TokenLiteral() string {
+	return s.Token.Literal
+} 
