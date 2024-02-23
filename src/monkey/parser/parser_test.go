@@ -47,6 +47,35 @@ func TestLetStatements(t *testing.T) {
 
 }
 
+func TestReturnStatements(t *testing.T) {
+	input := heredoc.Doc(`
+		return 5;
+		return 10;
+		return 838383;
+	`)
+
+	l := lexer.New(input)
+	p := New(l)
+
+	program := p.ParseProgram()
+	checkParserErrors(t, p)
+
+	if len(program.Statements) != 3 {
+		t.Fatalf("prgram.Statements does not contain 3 statements, got=%d", len(program.Statements))
+	}
+
+	for _, stmt := range program.Statements {
+		returnStmt, ok := stmt.(*ast.ReturnStatement)
+		if !ok {
+			t.Errorf("stmt not *ast.returnStatement. got=%T", stmt)
+		}
+
+		if returnStmt.TokenLiteral() != "return" {
+			t.Errorf("returnStmt.TokenLiteral not 'return', got %q", returnStmt.TokenLiteral())
+		}
+	}
+}
+
 func checkParserErrors(t *testing.T, p *Parser) {
 	if len(p.errors) == 0 {
 		return
