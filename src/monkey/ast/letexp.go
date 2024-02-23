@@ -10,8 +10,8 @@ type LetStatement struct {
 
 func (s *LetStatement) statementNode() {
 
-} 
+}
 
-func (s *LetStatement) TokenLiteral() string {
+func (s *LetStatement) TokenLiteral() string{
 	return s.Token.Literal
-} 
+}
