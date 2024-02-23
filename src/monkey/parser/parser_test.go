@@ -19,6 +19,7 @@ func TestLetStatements(t *testing.T) {
 	p := New(l)
 
 	program := p.ParseProgram()
+	checkParserErrors(t, p)
 
 	if program == nil {
 		t.Fatalf("ParseProgram() returned nil")
@@ -28,7 +29,7 @@ func TestLetStatements(t *testing.T) {
 		t.Fatalf(`Program statement does not contain 3 statements. got %d`, len(program.Statements))
 	}
 
-	tests := []struct{
+	tests := []struct {
 		expectedIdentifier string
 	}{
 		{"x"},
@@ -44,6 +45,20 @@ func TestLetStatements(t *testing.T) {
 		}
 	}
 
+}
+
+func checkParserErrors(t *testing.T, p *Parser) {
+	if len(p.errors) == 0 {
+		return
+	}
+
+	t.Errorf("parser had %d errors", len(p.errors))
+
+	for _, e := range p.errors {
+		t.Errorf("parser error: %q", e)
+	}
+
+	t.FailNow()
 }
 
 func testLetStatement(t *testing.T, s ast.Statement, name string) bool {
@@ -71,4 +86,3 @@ func testLetStatement(t *testing.T, s ast.Statement, name string) bool {
 
 	return true
 }
-
