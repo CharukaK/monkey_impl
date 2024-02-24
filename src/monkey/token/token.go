@@ -14,7 +14,7 @@ const (
 
 	// Identifiers + literals
 	IDENTIFIER = "IDENTIFIER" // identifiers
-	NUMERIC    = "NUMERIC"    // 12345
+	INT        = "INTEGER"    // 12345
 
 	// Operators
 	Assign   = "="
