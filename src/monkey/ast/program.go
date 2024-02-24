@@ -1,5 +1,9 @@
 package ast
 
+import (
+	"bytes"
+)
+
 type Program struct {
 	Statements []Statement
 }
@@ -10,4 +14,15 @@ func (p *Program) TokenLiteral() string {
 	} else {
 		return ""
 	}
+}
+
+func (p *Program) String() string {
+	var out bytes.Buffer
+
+	for _, stmt := range p.Statements {
+		out.WriteString(stmt.String())
+		out.WriteString("\n")
+	}
+
+	return out.String()
 }
