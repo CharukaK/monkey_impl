@@ -21,7 +21,7 @@ func (p *Program) String() string {
 
 	for _, stmt := range p.Statements {
 		out.WriteString(stmt.String())
-		out.WriteString("\n")
+		// out.WriteString("\n")
 	}
 
 	return out.String()

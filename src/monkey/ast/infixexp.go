@@ -2,6 +2,7 @@ package ast
 
 import (
 	"bytes"
+	"fmt"
 
 	"github.com/charukak/monkey_impl/src/monkey/token"
 )
@@ -24,7 +25,7 @@ func (ie *InfixExpression) String() string {
 
 	out.WriteString("(")
 	out.WriteString(ie.Left.String())
-	out.WriteString(ie.Operator)
+	out.WriteString(fmt.Sprintf(" %s ", ie.Operator))
 	out.WriteString(ie.Right.String())
 	out.WriteString(")")
 
